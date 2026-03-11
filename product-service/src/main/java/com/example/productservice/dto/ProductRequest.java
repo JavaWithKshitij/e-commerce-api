@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Data
 public class ProductRequest {
@@ -16,5 +17,5 @@ public class ProductRequest {
     private BigDecimal price;
     @NotNull(message = "Stock is required")
     @Positive(message = "Stock must be positive")
-    private Integer stock;
+    private BigInteger stock;
 }

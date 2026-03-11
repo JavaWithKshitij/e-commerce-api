@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigInteger;
 import java.util.UUID;
 
 @Entity
@@ -16,8 +17,7 @@ public class Order {
     private UUID id;
 
     private String productId;
-    private int quantity;
-    private String username;
+    private BigInteger productQuantity;
     @Version
     private Long version;
 

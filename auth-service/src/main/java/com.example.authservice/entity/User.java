@@ -10,18 +10,18 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Customer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String customerId;
+    private String userId;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -32,7 +32,7 @@ public class Customer {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Version
@@ -40,8 +40,8 @@ public class Customer {
 
     @PrePersist
     public void generateUserId() {
-        if (this.customerId == null) {
-            this.customerId = ("CUSTOMER-" + UUID.randomUUID()
+        if (this.userId == null) {
+            this.userId = ("CUSTOMER-" + UUID.randomUUID()
                     .toString()
                     .substring(0, 8)
                     .toUpperCase());
