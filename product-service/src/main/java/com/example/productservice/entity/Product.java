@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.UUID;
 
 @Entity
@@ -17,7 +18,7 @@ public class Product {
     private String productId;
     private String name;
     private BigDecimal price;
-    private int stock;
+    private BigInteger stock;
     @Version
     private Long version;
 

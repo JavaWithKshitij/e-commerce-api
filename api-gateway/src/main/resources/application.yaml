@@ -9,10 +9,20 @@ spring:
     gateway:
       mvc:
         routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth, /auth/**
+
         - id: product-service
           uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/products, /products/**
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+              - Path=/orders, /orders/**
 
 eureka:
   client:

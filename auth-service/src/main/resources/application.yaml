@@ -1,5 +1,6 @@
 server:
   port: 9083
+
 spring:
   application:
     name: auth-service
@@ -16,9 +17,12 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+    ddl-auto: create-drop
     show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
+
+jwt:
+  secret: c3VwZXJzZWNyZXRrZXlmb3Jqd3RzaWduaW5nMTIzNDU2Nzg5
 
 eureka:
   client:
